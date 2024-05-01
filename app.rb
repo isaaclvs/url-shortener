@@ -19,6 +19,7 @@ end
 
 # Rota de encurtamento
 post '/encurtando' do
+    
     url_original = params[:url_original]
     nova_url = generate_code()
 
@@ -37,6 +38,8 @@ get '/:nova_url' do |nova_url|
         "URL não encontrada"
     end
 end
+
+
 __END__
 
 
@@ -52,8 +55,8 @@ __END__
     <h1>Seu encurtador de url</h1>
     <form action="/encurtando" method="post">
     <label for="url_original">Insira a URL:</label><br>
-    <input type="text" id="url_original" name="url_original"><br>
-    <input type="submit" value="Encurtar">
+    <input type="text" id="url_original" name="url_original" /><br>
+    <input type="submit" value="Encurtar" />
   </form>
 
 </body>
