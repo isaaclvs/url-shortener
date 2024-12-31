@@ -2,9 +2,12 @@ GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.2.0)
+    bigdecimal (3.1.9)
+    dotenv (3.1.7)
     logger (1.6.4)
     mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
+    mysql2 (0.5.6)
     nio4r (2.7.4)
     puma (6.5.0)
       nio4r (~> 2.0)
@@ -18,6 +21,8 @@ GEM
     rackup (2.2.1)
       rack (>= 3)
     ruby2_keywords (0.0.5)
+    sequel (5.87.0)
+      bigdecimal
     sinatra (4.1.1)
       logger (>= 1.6.0)
       mustermann (~> 3.0)
@@ -32,8 +37,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  dotenv
+  mysql2
   puma
   rackup
+  sequel
   sinatra
 
 BUNDLED WITH
