@@ -1,0 +1,15 @@
+{
+  "name": "tailwind-app",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.49",
+    "autoprefixer": "^10.4.20"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./public/css/application.css -o ./public/css/application.min.css --minify"
+  }
+}

@@ -1,15 +1,17 @@
 require 'sinatra'
+require 'sinatra/tailwind'
 require './db.rb'
 
-class Url < Sequel::Model(:urls); end
-
-get '/' do
-  erb :index
+class Url < Sequel::Model(:urls)
 end
 
-post '/shorten' do
-  original_url = params[:original_url]
-  short_url = SecureRandom.hex(4)
-  Url.create(original_url: original_url, short_url: short_url)
-  "Shortened URL: #{short_url}"
+class App < Sinatra::Base
+  get '/' do
+    erb :index
+  end
+
+  post '/shorten' do
+    url = params[:url]
+    redirect '/'
+  end
 end

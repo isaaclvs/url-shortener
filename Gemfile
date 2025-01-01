@@ -10,4 +10,6 @@ gem 'mysql2'
 
 gem 'sequel'
 
+gem 'sinatra-tailwind'
+
 gem 'dotenv', groups: [:development, :test]

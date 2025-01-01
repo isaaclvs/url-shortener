@@ -1,1 +1,15 @@
-<h1>Url Shortener</h1>
+<div class="container mx-auto p-8">
+  <h1 class="text-2xl font-bold mb-4">URL Shortener</h1>
+  
+  <form action="/shorten" method="POST" class="space-y-4">
+    <input type="url" 
+           name="url" 
+           placeholder="Paste your URL here"
+           required
+           class="w-full p-2 border rounded">
+    
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+      Shorten
+    </button>
+  </form>
+</div>
