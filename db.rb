@@ -8,5 +8,3 @@ DB = Sequel.connect(
   user: ENV['DB_USER'],
   password: ENV['DB_PASSWORD']
 )
-
-

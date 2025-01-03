@@ -12,4 +12,22 @@
       Shorten
     </button>
   </form>
+
+  <% if @urls && !@urls.empty? %>
+    <div class="mt-8">
+      <h2 class="text-xl font-semibold mb-4">Recent URLs</h2>
+      <div class="space-y-2">
+        <% @urls.each do |url| %>
+          <div class="p-4 bg-gray-50 rounded">
+            <div class="text-sm text-gray-500">Original:</div>
+            <div class="mb-2 truncate"><%= url.original_url %></div>
+            <div class="text-sm text-gray-500">Shortened:</div>
+            <a href="/<%= url.short_code %>" class="text-blue-500 hover:underline">
+              <%= request.base_url %>/<%= url.short_code %>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
