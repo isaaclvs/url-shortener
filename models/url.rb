@@ -10,7 +10,12 @@ class Url < Sequel::Model
   def before_create
     self.short_code ||= generate_unique_code
     self.created_at ||= Time.now
+    self.access_count ||= 0
     super
+  end
+
+  def increment_access_count!
+    self.update(access_count: access_count + 1)
   end
 
   private

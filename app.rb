@@ -16,7 +16,11 @@ class App < Sinatra::Base
 
   get '/:short_code' do
     url = Url.first(short_code: params[:short_code])
-    redirect url.original_url if url
-    redirect '/'
+    if url
+      url.increment_access_count!
+      redirect url.original_url
+    else
+      redirect '/'
+    end
   end
 end

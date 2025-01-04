@@ -29,4 +29,18 @@ class ShortenerFeatureTest < Minitest::Test
     assert last_response.redirect?
     assert_equal 'https://www.google.com', last_response.location
   end
+
+  def test_url_access_count
+    post '/shorten', url: 'https://www.youtube.com'
+    url = Url.first
+    assert_equal 0, url.access_count
+
+    3.times do
+      get "/#{url.short_code}"
+      follow_redirect!
+    end
+
+    url.refresh
+    assert_equal 3, url.access_count
+  end
 end 

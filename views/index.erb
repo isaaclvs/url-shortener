@@ -25,6 +25,9 @@
             <a href="/<%= url.short_code %>" class="text-blue-500 hover:underline">
               <%= request.base_url %>/<%= url.short_code %>
             </a>
+            <div class="text-sm text-gray-500 mt-2">
+              Clicks: <%= url.access_count %>
+            </div>
           </div>
         <% end %>
       </div>
