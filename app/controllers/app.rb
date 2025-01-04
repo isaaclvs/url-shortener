@@ -1,9 +1,9 @@
 require 'sinatra'
 require 'sinatra/tailwind'
-require './db'
-require './models/url'
 
 class App < Sinatra::Base
+  set :views, File.expand_path('../views', __dir__)
+
   get '/' do
     @urls = Url.reverse_order(:created_at).limit(5)
     erb :index
