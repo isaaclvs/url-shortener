@@ -1,7 +1,11 @@
 require 'sinatra'
 require 'sinatra/tailwind'
+require_relative '../models/url'
 
 class App < Sinatra::Base
+  register Sinatra::Tailwind
+  
+  set :public_folder, File.expand_path('../../public', __dir__)
   set :views, File.expand_path('../views', __dir__)
 
   get '/' do
@@ -10,7 +14,7 @@ class App < Sinatra::Base
   end
 
   post '/shorten' do
-    url = Url.create(original_url: params[:url])
+    Url.create(original_url: params[:url])
     redirect '/'
   end
 

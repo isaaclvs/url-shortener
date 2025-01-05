@@ -1,6 +1,6 @@
-require_relative '../db'
+require_relative '../db/db'
 
-DB.create_table :urls do
+DB.create_table? :urls do
   primary_key :id
   String :original_url, null: false
   String :short_code, null: false, unique: true
