@@ -1,36 +1,36 @@
-<div class="container mx-auto p-8">
-  <h1 class="text-2xl font-bold mb-4">URL Shortener</h1>
+<div class="max-w-2xl mx-auto">
+  <h1 class="text-3xl font-bold mb-8 text-center">URL Shortener</h1>
   
-  <form action="/shorten" method="POST" class="space-y-4">
-    <input type="url" 
-           name="url" 
-           placeholder="Paste your URL here"
-           required
-           class="w-full p-2 border rounded">
-    
-    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
-      Shorten
-    </button>
+  <form action="/shorten" method="POST" class="mb-8">
+    <div class="flex gap-2">
+      <input type="url" 
+             name="url" 
+             placeholder="Paste your URL here"
+             required
+             class="flex-1 p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      
+      <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+        Shorten
+      </button>
+    </div>
   </form>
 
   <% if @urls && !@urls.empty? %>
-    <div class="mt-8">
+    <div class="space-y-4">
       <h2 class="text-xl font-semibold mb-4">Recent URLs</h2>
-      <div class="space-y-2">
-        <% @urls.each do |url| %>
-          <div class="p-4 bg-gray-50 rounded">
-            <div class="text-sm text-gray-500">Original:</div>
-            <div class="mb-2 truncate"><%= url.original_url %></div>
-            <div class="text-sm text-gray-500">Shortened:</div>
-            <a href="/<%= url.short_code %>" class="text-blue-500 hover:underline">
-              <%= request.base_url %>/<%= url.short_code %>
-            </a>
-            <div class="text-sm text-gray-500 mt-2">
-              Clicks: <%= url.access_count %>
-            </div>
+      <% @urls.each do |url| %>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <div class="text-sm text-gray-500">Original:</div>
+          <div class="mb-2 truncate"><%= url.original_url %></div>
+          <div class="text-sm text-gray-500">Shortened:</div>
+          <a href="/<%= url.short_code %>" class="text-blue-500 hover:underline">
+            <%= request.base_url %>/<%= url.short_code %>
+          </a>
+          <div class="mt-2 text-sm text-gray-500">
+            Clicks: <%= url.access_count %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
