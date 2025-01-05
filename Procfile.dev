@@ -1,2 +1,2 @@
-web: bundle exec rackup -p ${PORT:-9292}
+web: bundle exec rackup -o 0.0.0.0 -p ${PORT:-9292}
 css: bundle exec tailwind watch
