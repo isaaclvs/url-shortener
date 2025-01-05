@@ -1,5 +1,9 @@
 # URL Shortener
 
+[![Ruby](https://img.shields.io/badge/Ruby-3.3.0-red.svg)](https://www.ruby-lang.org)
+[![Sinatra](https://img.shields.io/badge/Sinatra-Latest-black.svg)](http://sinatrarb.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-blue.svg)](https://www.mysql.com/)
+
 A simple and efficient URL shortener built with Sinatra and MySQL. It generates unique 6-character short URLs and tracks access statistics.
 
 ## 🚀 Technologies
@@ -114,6 +118,11 @@ The project includes automated tests:
 - Feature tests in `test/features/`
 - Model tests in `test/models/`
 - Run tests using the appropriate command
+
+## 📸 Screenshots
+
+![Home Page](.github/images/home.png)
+*Home Page*
 
 ## 👤 Author
 
